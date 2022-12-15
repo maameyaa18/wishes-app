@@ -1,0 +1,38 @@
+{% extends "wishes/base.html" %}
+
+{%block content%}
+
+<main>
+  <div class="container py-4">
+   
+    <div class="p-5 mb-4 bg-warning rounded-3">
+        <div class="container-fluid py-5">
+            <h1 class="display-5 fw-bold">MY WISHLIST APP</h1>
+            <p class="col-md-8 fs-4">Create a wishlist and keep track of items on it.</p>
+            <button class="btn btn-dark btn-lg" type="button"><a class="text-light" href="{% url 'wishes:new_wish' %}">Explore </a></button>
+        </div>
+    </div>
+
+    <div class="row align-items-md-stretch">
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark rounded-3">
+                <h2>Never forget a thing you want to have in your life again.</h2>
+                <p>Put a smile on someone's face by making their wish come true!</p>
+            </div>
+        </div>
+        <div class="col-md-6">
+            <div class="h-100 p-5 text-white bg-dark border rounded-3">
+                <h2>Unlimited Wishes</h2>
+                <p>Create an account and start immediately. No limits! No fees!</p>
+            </div>
+        </div>
+    </div>
+
+    <footer class="pt-3 mt-4 text-muted border-top">
+        © My Wishlist 2022
+    </footer>
+
+  </div>
+</main>
+
+{%endblock content%} 

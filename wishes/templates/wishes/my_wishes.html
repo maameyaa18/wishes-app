@@ -1,0 +1,36 @@
+{% extends "wishes/base.html" %}
+        
+{% block content %}
+                          
+<h2 class="text-center mb-3">MY WISHES:</h2>
+        
+<div class="row">
+	<div class="col">
+		<div class="container text-center p-3">
+			<table class="table text-center">
+				<tr>
+					<th>Wish</th>
+					<th>Date Listed</th>
+					<th></th>
+					<th></th>
+					<th></th>
+				</tr>
+				{% for my_wish in my_wishes %}
+				<tr>
+					<td>{{ my_wish.title }}</td>
+					<td>{{ my_wish.list_date }}</td>
+					<td><a class="btn btn-warning"  href="{% url 'wishes:detail' my_wish.id %}">View</a></td>
+					<td><a class="btn btn-warning"  href="{% url 'wishes:edit_wish' my_wish.id %}">Edit</a></td>
+					<td><a class="btn btn-warning"  href="{% url 'wishes:delete_wish' my_wish.id %}">Delete</a></td>
+				</tr>
+				{% endfor %}
+      		</table>
+      		<div class="container text-center">
+      			<a class="btn btn-warning"  href="{% url 'wishes:new_wish'%}">New Wish</a>
+        	</div>
+    	</div>
+    </div>
+</div>     
+        
+{% endblock content %}
+

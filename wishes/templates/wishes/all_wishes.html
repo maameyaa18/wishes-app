@@ -1,0 +1,37 @@
+{% extends "wishes/base.html" %}
+{% load crispy_forms_tags %}
+{%block content%}
+
+<div class="container text-center p-3 " style="width:500px;">
+    <h1 class="text-dark">Wishes</h1>
+    <div class="form-group">
+        <div class="card card-body bg-light text-dark rounded">
+            <form method="get">
+                <div class="row ">
+                    <div class="col-md-3">
+                        {{ my_Filter.form.status|as_crispy_field }}
+                    </div>
+                    <div class="col-md-3 p-2">
+                        <button class="btn btn-warning border-dark mt-4" type="submit">Search</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div> 
+                   
+<div class="container">
+    <div class="card card-body bg-light text-dark text-center p-3 ">
+        {% for wish in all_wishes%}
+            <img class="card-img-right img-thumbnail"  src="{{ wish.main_photo.url }}" width=300px height=200px style="max-height:200px" alt="connect">
+            <img class="card-img-right img-thumbnail" src="{{ wish.photo_1.url }}" width=300px height=200px style="max-height:200px" alt="connect">
+            <p><b>Title:</b> {{ wish.title }}</p>
+            <p><b>Status:</b> {{ wish.status }}</p>
+            <p><b>Post Date:</b> {{ wish.list_date }}</p>
+            <ul><a class="btn btn-warning border-dark" href="{% url 'wishes:detail' wish.id %}">View Wish</a></ul>
+            <hr>
+        {% endfor %}
+    </div>
+</div>
+
+{%endblock content%}

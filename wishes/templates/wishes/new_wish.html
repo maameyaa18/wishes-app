@@ -1,0 +1,35 @@
+{% extends "wishes/base.html" %}
+{% load crispy_forms_tags %}
+        
+{%block content%} 
+<h2 class="p-3 text-center">NEW WISH</h2>
+<div class="container" style="width: 50%;">
+    <form action="{% url 'wishes:new_wish' %}" method='post' enctype="multipart/form-data">
+    {% csrf_token %}
+            
+    <div class="row">
+        <div class="col">{{ form.title|as_crispy_field }}</div>
+        <div class="col">{{ form.status|as_crispy_field }}</div>
+    </div>
+            
+        
+    <div class="row">
+        <div class="col-6">{{ form.main_photo|as_crispy_field }}</div>
+        <div class="col-6">{{ form.photo_1|as_crispy_field }}</div>
+    </div>
+        
+    <div class="row">
+        <div class="col-6">{{ form.photo_2|as_crispy_field }}</div>
+    </div>
+
+    <div class="row">
+        <div class="col-6">{{ form.list_date|as_crispy_field }}</div>
+    </div>
+              
+    <div class = "container text-center p-3">
+        <button type="submit" class="btn btn-warning">Create Wish</button>
+    </div>
+    </form>
+</div>
+                      
+{%endblock content%} 

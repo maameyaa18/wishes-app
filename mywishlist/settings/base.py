@@ -11,23 +11,11 @@ https://docs.djangoproject.com/en/4.1/ref/settings/
 """
 
 import os
-
+import django_heroku
 from pathlib import Path
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
-
-
-# Quick-start development settings - unsuitable for production
-# See https://docs.djangoproject.com/en/4.1/howto/deployment/checklist/
-
-# SECURITY WARNING: keep the secret key used in production secret!
-SECRET_KEY = 'django-insecure-s2%*msf$5s!xi=oe#&j6f%qnn5e#2v+^kw=z+(mwrwx0p4!*a#'
-
-# SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
-
-ALLOWED_HOSTS = []
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Application definition
@@ -44,7 +32,8 @@ INSTALLED_APPS = [
     'django_filters',
     'crispy_forms',
     'crispy_bootstrap5',
-    'storages'
+    'storages',
+    'django_extensions'
 ]
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
@@ -81,19 +70,6 @@ TEMPLATES = [
 
 WSGI_APPLICATION = 'mywishlist.wsgi.application'
 
-
-# Database
-# https://docs.djangoproject.com/en/4.1/ref/settings/#databases
-
-DATABASES = {
-     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wishes_postgres_db',
-        'USER': 'postgres',
-        'PASSWORD': 'maame',
-        'HOST': 'localhost'
-    }
-}
 
 
 # Password validation
@@ -143,14 +119,4 @@ FILE_UPLOAD_PERMISSIONS = 0O640
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-# S3 BUCKETS
-AWS_ACCESS_KEY_ID = 'AKIAU5R3KQN66KWCLTLJ'
-AWS_SECRET_ACCESS_KEY = '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'
-AWS_STORAGE_BUCKET_NAME = 'wishes-bucket'
-
-
-AWS_S3_FILE_OVERWRITE = False
-AWS_DEFAULT_ACL = None
-AWS_S3_REGION_NAME = 'us-east-1'
-DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-STATICFILES_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+django_heroku.settings(locals())

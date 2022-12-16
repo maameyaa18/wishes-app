@@ -11,15 +11,15 @@ DATABASES = {
       'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'wishes_postgres_db',
-        'USER': config('PROD_SECRET_KEY'),
-        'PASSWORD': config('PROD_SECRET_KEY'),
-        'HOST': config('PROD_SECRET_KEY'),
+        'USER': config('PROD_DB_USER'),
+        'PASSWORD': config('PROD_DB_PASSWORD'),
+        'HOST': config('DATABASE_URL'),
     }
 }
 
 # S3 BUCKETS
-AWS_ACCESS_KEY_ID = config('PROD_SECRET_KEY')
-AWS_SECRET_ACCESS_KEY = config('PROD_SECRET_KEY')
+AWS_ACCESS_KEY_ID = config('AWS_ACCESS_KEY_ID')
+AWS_SECRET_ACCESS_KEY = config('AWS_SECRET_KEY')
 AWS_STORAGE_BUCKET_NAME = 'wishes-bucket'
 
 

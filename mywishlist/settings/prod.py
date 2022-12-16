@@ -10,10 +10,10 @@ ALLOWED_HOSTS = ['*']
 DATABASES = {
       'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'wishes_postgres_db',
+        'NAME': config('PROD_DB_NAME'),
         'USER': config('PROD_DB_USER'),
         'PASSWORD': config('PROD_DB_PASSWORD'),
-        'HOST': config('DATABASE_URL'),
+        'HOST': config('DATABASE_HOST'),
     }
 }
 

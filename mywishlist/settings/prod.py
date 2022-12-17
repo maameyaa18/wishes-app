@@ -3,7 +3,7 @@ from decouple import config
 
 SECRET_KEY = config('PROD_SECRET_KEY')
 
-DEBUG = True
+DEBUG = False
 
 ALLOWED_HOSTS = ['*']
 

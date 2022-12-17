@@ -26,6 +26,7 @@
             <img class="card-img-right img-thumbnail"  src="{{ wish.main_photo.url }}" width=300px height=200px style="max-height:200px" alt="connect">
             <img class="card-img-right img-thumbnail" src="{{ wish.photo_1.url }}" width=300px height=200px style="max-height:200px" alt="connect">
             <p><b>Title:</b> {{ wish.title }}</p>
+            <p><b>By:</b> {{ wish.user }}</p>
             <p><b>Status:</b> {{ wish.status }}</p>
             <p><b>Post Date:</b> {{ wish.list_date }}</p>
             <ul><a class="btn btn-warning border-dark" href="{% url 'wishes:detail' wish.id %}">View Wish</a></ul>

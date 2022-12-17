@@ -6,7 +6,7 @@
 <div class="container p-3" style="width:40%;">   
     <form method="POST" action="{% url 'users:register' %}">
         {% csrf_token %}
-        {% crispy form %}
+        {{ form|crispy }}
         <div class="container text-center">
         <button name="submit" class="btn btn-warning">Register</button>
         <input type="hidden" name="next" value="{% url 'users:login' %}"/>

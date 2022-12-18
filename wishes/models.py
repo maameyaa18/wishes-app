@@ -4,7 +4,7 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 
-# Create your models here.
+# Class for creating a Wish object
 class Wishes(models.Model):
 
     class Status(models.TextChoices):

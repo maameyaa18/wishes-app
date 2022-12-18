@@ -5,7 +5,7 @@ SECRET_KEY = config('DEV_SECRET_KEY')
 
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 DATABASES = {
       'default': {
